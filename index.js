@@ -4,10 +4,11 @@ import dotenv from 'dotenv'
 import router from "./routes/usuarioRoutes.js";
 
 const app = express()
+app.use(express.json())
 
 dotenv.config()
 
-const PORT = process.env.PORT || 4000
+const PORT = process.env.PORT || 3500
 
 conectarDB()
 
@@ -19,3 +20,6 @@ app.use('/api/usuarios', router)
 app.listen(PORT, () => {
     console.log(`Servidor iniciado en: ${PORT}`);
 })
+
+console.log('hola')
+
