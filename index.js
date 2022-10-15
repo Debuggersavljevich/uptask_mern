@@ -21,5 +21,4 @@ app.listen(PORT, () => {
     console.log(`Servidor iniciado en: ${PORT}`);
 })
 
-console.log('hola')
 
