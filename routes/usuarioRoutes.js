@@ -8,7 +8,8 @@ import { registrar } from '../controllers/usuarioController.js'
 // autenticacion, creacion de registro y confirmacion de usuario
 
 router.post('/', registrar) //crear usuarios
-router.post('/login', autenticar) //
+router.post('/login', autenticar) 
+router.post('/confirmar/:token', confirmar) 
 
 
 export default router
