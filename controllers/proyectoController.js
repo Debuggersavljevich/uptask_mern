@@ -1,7 +1,11 @@
 import Proyecto from '../models/Proyecto.js'
 
 
-const obtenerProyectos = async (req, res) => {}
+const obtenerProyectos = async (req, res) => {
+    const proyectos = await Proyecto.find().where('creador').equals(req.usuario)
+
+    res.json(proyectos)
+}
 
 const nuevoProyecto = async (req, res) => {
     const proyecto = new Proyecto(req.body)
@@ -9,7 +13,6 @@ const nuevoProyecto = async (req, res) => {
 
     try {
         const proyectoAlmacenado = await proyecto.save()
-        res.json(proyectoAlmacenado)
     } catch (error) {
         console.log(error);
         
