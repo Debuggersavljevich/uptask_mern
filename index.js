@@ -3,6 +3,7 @@ import conectarDB from "./config/db.js";
 import dotenv from 'dotenv'
 import usuarioRoutes from "./routes/usuarioRoutes.js";
 import nuevoProyecto from "./routes/proyectoRoutes.js";
+import tareaRoutes from "./routes/tareaRoutes.js";
 
 
 
@@ -18,6 +19,7 @@ conectarDB()
 // Routing
 app.use('/api/usuarios', usuarioRoutes)
 app.use('/api/proyectos', nuevoProyecto)
+app.use('/api/tareas', tareaRoutes)
 
 
 app.listen(PORT, () => {
