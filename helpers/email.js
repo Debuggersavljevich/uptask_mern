@@ -29,4 +29,3 @@ export const emailRegistro = async (datos) => {
 
 }
 
-
