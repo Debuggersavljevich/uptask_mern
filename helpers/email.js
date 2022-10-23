@@ -1,4 +1,8 @@
 import nodemailer from 'nodemailer'
+import dotenv from 'dotenv'
+
+dotenv.config()
+
 
 
 export const emailRegistro = async (datos) => {
@@ -6,11 +10,11 @@ export const emailRegistro = async (datos) => {
   
   
     const transport = nodemailer.createTransport({
-    host: "smtp.mailtrap.io",
-    port: 2525,
+    host: process.env.EMAIL_HOST,
+    port: process.env.EMAIL_PORT,
     auth: {
-        user: "65f04d6619fd96",
-        pass: "0523d5a55be3bb"
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
      }
     });
     // Informacion del email
@@ -30,17 +34,21 @@ export const emailRegistro = async (datos) => {
 }
 
 export const emailOlvidePassword = async (datos) => {
+
+    
     const {nombre, email, token} = datos
   
   
     const transport = nodemailer.createTransport({
-    host: "smtp.mailtrap.io",
-    port: 2525,
+    host: process.env.EMAIL_HOST,
+    port: process.env.EMAIL_PORT,
     auth: {
-        user: "65f04d6619fd96",
-        pass: "0523d5a55be3bb"
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
      }
     });
+
+   
     // Informacion del email
     const info = await transport.sendMail({
         from: '"Uptask - Administrador de Proyectos" <cuentas@uptask.com>',
