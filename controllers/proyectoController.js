@@ -14,6 +14,7 @@ const nuevoProyecto = async (req, res) => {
 
     try {
         const proyectoAlmacenado = await proyecto.save()
+        res.json(proyectoAlmacenado)
     } catch (error) {
         console.log(error);
         
@@ -38,11 +39,7 @@ const obtenerProyecto = async (req, res) => {
     
 
     //Tenes que ser creador o colaborador
-        const tareas = await Tarea.find().where("proyecto").equals(proyecto._id)
-        res.json({
-            proyecto,
-            tareas
-        })
+        res.json(proyecto)
 
 }
 
